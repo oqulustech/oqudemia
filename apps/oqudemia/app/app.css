@@ -1,0 +1,68 @@
+/* This file was renamed from app.module.css to app.css for global styles. */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.drawerHeaderCustom {
+    background: #1976d2;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    font-size: 1.3rem;
+    font-weight: bold; 
+    position: relative;
+}
+.drawerHeaderCustom button {
+    color: #fff !important;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*Login form*/
+.login-form {
+    border-radius: 12px !important;
+    overflow: hidden;
+    padding: 32px !important;
+    min-width: 250px;
+    background: rgba(255,255,255,0.85) !important;
+    color: #333 !important;
+    border-left: 6px solid salmon;
+}
+.login-form a{
+    text-decoration: none !important;
+    color: salmon;
+}
+.login-field .MuiInputBase-root,
+.login-field input {
+    height: 56px !important;
+    min-height: 56px !important;
+    font-size: 18px !important;
+    box-sizing: border-box;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.button-login{
+    border-radius: 50px !important;
+    height: 56px !important;
+}
+
+/* Your styles goes here. */
+.topnav{
+    background-color: #333;
+    overflow: hidden;
+}
+.header-gradient {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff !important;
+}
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

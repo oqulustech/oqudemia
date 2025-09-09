@@ -1,0 +1,104 @@
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import SettingsIcon from '@mui/icons-material/Settings';
+
+import { NavLink, useNavigate } from 'react-router-dom';
+
+interface SideMenuItem {
+  id: string;
+  name: string;
+  link: string;
+  component: string;
+}
+
+interface NavMenuItem {
+  id: string;
+  name: string;
+  link: string;
+  component: string;
+  sidemenu?: SideMenuItem[];
+}
+
+
+interface NavTopProps {
+  navMenu: NavMenuItem[];
+  onMenuSelect: (sidemenu: SideMenuItem[]) => void;
+}
+
+
+const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const navigate = useNavigate();
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('token_expires_at')
+    handleClose();
+    window.location.href = '/login';
+  };
+
+  return (
+    <AppBar position="static" color="primary" enableColorOnDark>
+      <Toolbar>
+        <Stack direction="row" spacing={1} sx={{ flexGrow: 1 }}>
+          {navMenu.map((item) => (
+            <NavLink
+              key={item.id}
+              to={item.link}
+              style={{ color: 'inherit', textDecoration: 'none', marginRight: 8 }}
+              onClick={() => onMenuSelect(item.sidemenu || [])}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </Stack>
+        <Box sx={{ flexGrow: 0 }}>
+          <IconButton
+            size="large"
+            aria-label="settings"
+            aria-controls={open ? 'settings-menu' : undefined}
+            aria-haspopup="true"
+            onClick={handleMenu}
+            color="inherit"
+          >
+            <SettingsIcon />
+          </IconButton>
+          <Menu
+            id="settings-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          >
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          </Menu>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export { NavTop };
+
+

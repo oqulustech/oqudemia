@@ -1,0 +1,43 @@
+/* Custom Drawer Header Styling */
+.drawerHeaderCustom {
+    background: #1976d2;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    font-size: 1.3rem;
+    font-weight: bold; 
+    position: relative;
+}
+.drawerHeaderCustom button {
+    color: #fff !important;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Form Control Customization */
+.login-field{
+    margin-bottom: 15px;
+    border: 1px solid red !important;
+}
+
+/* Your styles goes here. */
+.topnav{
+    background-color: #333;
+    overflow: hidden;
+}
+.header-gradient {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff !important;
+}
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

@@ -1,0 +1,297 @@
+{
+  "topmenu": [
+    {
+      "id": "1",
+      "name": "Admission",
+      "link": "/admission",
+      "component": "AdmissionPage",
+      "sidemenu": [
+        {
+          "id": "1",
+          "name": "Employee Leave Application",
+          "link": "/admission",
+          "component": "AdmissionPage"
+        },
+        {
+          "id": "2",
+          "name": "My Book Details",
+          "link": "/library",
+          "component": "LibraryPage"
+        },
+        {
+          "id": "3",
+          "name": "My Details(Employee)",
+          "link": "/human-resource",
+          "component": "HumanResourcePage"
+        },
+        {
+          "id": "4",
+          "name": "OPAC",
+          "link": "/library",
+          "component": "LibraryPage"
+        },
+        {
+          "id": "5",
+          "name": "Orientation Program",
+          "link": "/pages",
+          "component": "PagesPage"
+        },
+        {
+          "id": "6",
+          "name": "Income & Deduction Details",
+          "link": "/finance",
+          "component": "FinancePage"
+        },
+        {
+          "id": "7",
+          "name": "Employee's Additional Income",
+          "link": "/finance",
+          "component": "FinancePage"
+        },
+        {
+          "id": "8",
+          "name": "Event Schedule",
+          "link": "/more",
+          "component": "MorePage"
+        },
+        {
+          "id": "9",
+          "name": "Facility Report",
+          "link": "/hostel",
+          "component": "HostelPage"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Examination",
+      "link": "/examination",
+      "component": "ExaminationPage",
+      "sidemenu": []
+    },
+    {
+      "id": "3",
+      "name": "Fee",
+      "link": "/fee",
+      "component": "FeePage",
+      "sidemenu": []
+    },
+    {
+      "id": "4",
+      "name": "Finance",
+      "link": "/finance",
+      "component": "FinancePage",
+      "sidemenu": []
+    },
+    {
+      "id": "5",
+      "name": "Human Resource",
+      "link": "/human-resource",
+      "component": "HumanResourcePage",
+      "sidemenu": []
+    },
+    {
+      "id": "6",
+      "name": "Hostel",
+      "link": "/hostel",
+      "component": "HostelPage",
+      "sidemenu": []
+    },
+    {
+      "id": "7",
+      "name": "Inventory",
+      "link": "/inventory",
+      "component": "InventoryPage",
+      "sidemenu": []
+    },
+    {
+      "id": "8",
+      "name": "Library",
+      "link": "/library",
+      "component": "LibraryPage",
+      "sidemenu": []
+    },
+    {
+      "id": "9",
+      "name": "MIS",
+      "link": "/mis",
+      "component": "MISPage",
+      "sidemenu": []
+    },
+    {
+      "id": "10",
+      "name": "Pages",
+      "link": "/pages",
+      "component": "PagesPage",
+      "sidemenu": []
+    },
+    {
+      "id": "11",
+      "name": "More",
+      "link": "/more",
+      "component": "MorePage",
+      "sidemenu": []
+    },
+    {
+      "id": "12",
+      "name": "Components",
+      "link": "/components",
+      "component": "ComponentPage",
+      "sidemenu": [
+        {
+          "id": "1",
+          "name": "Form",
+          "link": "/form",
+          "component": "Form"
+        },
+        {
+          "id": "2",
+          "name": "Table",
+          "link": "/table",
+          "component": "Table"
+        },
+        {
+          "id": "3",
+          "name": "Alert",
+          "link": "/alert",
+          "component": "Alert"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "abc@gmail.com",
+      "role": "Admin",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      "id": "8666",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "8d5c",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "d045",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "2758",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "5599",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "9626",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "a020",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "a46f",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "ffd2",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "30cf",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "8b50",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "0a13",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "7d65",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "adee",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "c110",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "5c65",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "2f95",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "ae49",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "e482",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "174e",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "5adf",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "727f",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "0a15",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "ab1a",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    },
+    {
+      "id": "1b14",
+      "email": "abc@gmial.com",
+      "password": "123456"
+    }
+  ]
+}
