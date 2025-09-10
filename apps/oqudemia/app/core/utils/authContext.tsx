@@ -7,35 +7,47 @@ interface AuthContextType {
   roles: UserRole[];
   setRoles: (roles: UserRole[]) => void;
   clearRoles: () => void;
+  logout: () => void;
+  extendSession: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Centralized session management
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('token_expires_at');
+    setRoles([]);
+    setIsAuthenticated(false);
+    window.sessionStorage.removeItem('token_expiry_alerted');
+    window.location.href = '/';
+  };
+
+  const extendSession = () => {
+    const newExpiresAt = Date.now() + 5 * 1000; // extend by 5s for demo
+    localStorage.setItem('token_expires_at', newExpiresAt.toString());
+    window.sessionStorage.removeItem('token_expiry_alerted');
+  };
   const [roles, setRoles] = useState<UserRole[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken'); // or use cookies
-    if (token) {
-      // You could decode token and extract roles here instead
-      fetchRolesFromBackend(token);
-    }
+    const checkToken = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+        setRoles([]);
+      }
+    };
+    checkToken();
+    window.addEventListener('storage', checkToken);
+    return () => window.removeEventListener('storage', checkToken);
   }, []);
 
-  const fetchRolesFromBackend = async (token: string) => {
-    try {
-      const res = await fetch('/api/user/roles', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-      setRoles(data.roles);
-      setIsAuthenticated(true);
-    } catch (err) {
-      console.error('Failed to fetch roles', err);
-      setIsAuthenticated(false);
-    }
-  };
+  // fetchRolesFromBackend removed for now
 
   const clearRoles = () => {
     setRoles([]);
@@ -43,7 +55,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, roles, setRoles, clearRoles }}>
+  <AuthContext.Provider value={{ isAuthenticated, roles, setRoles, clearRoles, logout, extendSession }}>
       {children}
     </AuthContext.Provider>
   );

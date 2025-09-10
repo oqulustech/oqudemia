@@ -3,7 +3,7 @@ import api from '../utils/axios';
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export interface UserCredentials {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -17,8 +17,19 @@ export interface User {
 export const authorisationService = {
 
   async login(credentials: UserCredentials): Promise<User> {
-    const response = await api.post(`${API_URL}/users`, credentials);
-    return response.data;
+    // Use GET for mock API: /users?username=...&password=...
+    const response = await api.get(`${API_URL}/users`, {
+      params: {
+        username: credentials.username,
+        password: credentials.password,
+      },
+    });
+    // If user found, return first match
+    if (response.data && response.data.length > 0) {
+      return response.data[0];
+    } else {
+      throw new Error('Invalid username or password');
+    }
   },
 
   async register(data: Omit<User, 'id'> & { password: string }): Promise<User> {
@@ -48,5 +59,5 @@ export const authorisationService = {
   async update(id: string, data: Partial<User>): Promise<User> {
     const response = await api.patch(`${API_URL}/users/${id}`, data);
     return response.data;
-  },
-};
+  }
+}

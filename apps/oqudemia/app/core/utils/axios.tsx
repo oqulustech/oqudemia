@@ -15,17 +15,17 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
-api.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    if (error.response && error.response.status === 401) {
-      // Token expired or invalid — log out user or refresh token
-      localStorage.removeItem('authToken');
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  }
-);
+// api.interceptors.response.use(
+//   (response) => response,
+//   async (error) => {
+//     if (error.response && error.response.status === 401) {
+//       // Token expired or invalid — log out user or refresh token
+//       localStorage.removeItem('authToken');
+//       window.location.href = '/login';
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 
 

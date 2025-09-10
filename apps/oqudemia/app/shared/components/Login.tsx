@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../core/utils/authContext';
 import LoginExpire from './SessionExpire';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -19,6 +20,7 @@ const Login: React.FC = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [expireModalOpen, setExpireModalOpen] = useState(false);
+  const { logout, extendSession } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -35,11 +37,11 @@ const Login: React.FC = () => {
         setLoading(false);
         return;
       }
-  const user = await authorisationService.login(form);
+  const user = await authorisationService.login({ username: form.username, password: form.password });
   // Simulate token (replace with real token from backend if available)
   localStorage.setItem('token', user.id || 'dummy-token');
   // Set token expiry (5 seconds from now for testing)
-  const expiresAt = Date.now() + 5 * 1000;
+  const expiresAt = Date.now() + 50 * 1000;
   localStorage.setItem('token_expires_at', expiresAt.toString());
   setLoading(false);
   window.location.href = '/app';
@@ -83,19 +85,15 @@ const Login: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Use context methods for session actions
   const handleContinueSession = () => {
-    const newExpiresAt = Date.now() + 5 * 1000; // extend by 5s for demo
-    localStorage.setItem('token_expires_at', newExpiresAt.toString());
+    extendSession();
     setExpireModalOpen(false);
-    window.sessionStorage.removeItem('token_expiry_alerted');
   };
 
   const handleLogoutSession = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('token_expires_at');
+    logout();
     setExpireModalOpen(false);
-    window.sessionStorage.removeItem('token_expiry_alerted');
-    window.location.href = '/';
   };
 
   return (

@@ -1,5 +1,5 @@
 {
-  "topmenu": [ 
+  "topmenu": [
     {
       "id": "1",
       "name": "Admission",
@@ -192,11 +192,6 @@
       "username": "1111",
       "password": "123456",
       "avatar": "https://i.pravatar.cc/150?img=3"
-    },
-    {
-      "id": "f73f",
-      "username": "admin@ivaluework.com",
-      "password": "Ivaluework@@123"
     }
   ]
 }
