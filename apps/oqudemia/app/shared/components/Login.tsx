@@ -179,7 +179,7 @@ const Login: React.FC = () => {
         </form>
         <Box mt={2} display="flex" flexDirection="column" alignItems="center">
           <Typography align="center" color="error" sx={{ width: '100%' }}>
-            New Student Login <a href="#">Track Application</a>
+            <a href="#"> New Student Login</a> | <a href="#">Track Application</a>
           </Typography>
         </Box>
       </div>
