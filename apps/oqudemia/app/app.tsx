@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { menuService } from './core/services/menu';
 import './app.css';
 
 // Imported components
@@ -99,16 +100,19 @@ export function App() {
       window.location.href = '/';
       return;
     }
-    // Fetch topmenu from API
-    import('axios').then(({ default: axios }) => {
-      axios.get('http://localhost:3000/topmenu').then(res => {
-        setNavMenu(res.data);
+    // Fetch topmenu using menuService
+    (async () => {
+      try {
+        const res = await menuService.getTopMenu();
+        setNavMenu(res);
         // Set initial sidemenu from first menu item
-        if (res.data.length > 0 && Array.isArray(res.data[0].sidemenu)) {
-          setSidemenu(res.data[0].sidemenu);
+        if (res.length > 0 && Array.isArray(res[0].sidemenu)) {
+          setSidemenu(res[0].sidemenu);
         }
-      });
-    });
+      } catch (err) {
+        console.error('Failed to fetch topmenu:', err);
+      }
+    })();
   }, []);
 
   const handleDrawerOpen = () => setOpen(true);
@@ -138,7 +142,7 @@ export function App() {
 
       {/* Left Drawer Menu */}
       <Drawer variant="permanent" open={open}>
-      <DrawerHeader className="drawerHeaderCustom">
+    <DrawerHeader className="drawerHeaderCustom">
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : 'Oqudemia'}
           </IconButton>

@@ -6,10 +6,13 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
+    config.headers = config.headers || {};
     const token = localStorage.getItem('token');
     if (token) {
-      config.headers = config.headers || {};
       config.headers.Authorization = `Bearer ${token}`;
+      console.log('[Axios] Sending token:', token, 'Full header:', config.headers);
+    } else {
+      console.log('[Axios] No token found for request:', config.url);
     }
     return config;
   },

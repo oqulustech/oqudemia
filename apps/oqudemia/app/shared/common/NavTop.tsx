@@ -1,12 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -99,6 +95,8 @@ const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
   );
 };
 
+  // Example usage (replace axios.get with api.get):
+  // api.get('http://localhost:3000/topmenu').then(...)
 export { NavTop };
 
 
