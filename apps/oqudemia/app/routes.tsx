@@ -18,5 +18,5 @@ export default [
   route('table', './featured/component/Table.tsx'),
   route('alert', './featured/component/Alert.tsx'),
   // Catch-all: show login for any unknown/random URL
-  route('*', './shared/components/Login.tsx'),
+  // route('*', './shared/components/Login.tsx'),
 ] satisfies RouteConfig;

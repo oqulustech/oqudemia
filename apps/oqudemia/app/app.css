@@ -26,14 +26,18 @@ body {
     border-radius: 12px !important;
     overflow: hidden;
     padding: 32px !important;
-    min-width: 250px;
+    width: 400px;
     background: rgba(255,255,255,0.85) !important;
     color: #333 !important;
     border-left: 6px solid salmon;
 }
 .login-form a{
     text-decoration: none !important;
-    color: salmon;
+    color: #333;
+}
+.login-form a:hover{
+    text-decoration: none !important;
+    color: salmon
 }
 .login-field .MuiInputBase-root,
 .login-field input {

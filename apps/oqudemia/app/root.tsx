@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Meta, Links, Scripts, ScrollRestoration } from 'react-router';
+import { AuthProvider } from './core/utils/authContext';
 import Login from './shared/components/Login';
 import { App } from './app';
 import './app.css';
@@ -22,7 +23,9 @@ const Root = () => {
         <Links />
       </head>
       <body>
-        {isAuth === null ? null : isAuth ? <App /> : <Login />}
+        <AuthProvider>
+          {isAuth === null ? null : isAuth ? <App /> : <Login />}
+        </AuthProvider>
         <ScrollRestoration />
         <Scripts />
         {/* Bootstrap JS */}

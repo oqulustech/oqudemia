@@ -165,133 +165,38 @@
       "name": "John Doe",
       "email": "abc@gmail.com",
       "role": "Admin",
+      "username": "1111",
       "password": "123456",
       "avatar": "https://i.pravatar.cc/150?img=3"
     },
     {
       "id": "8666",
       "email": "abc@gmial.com",
-      "password": "123456"
+      "role": "user",
+      "username": "1111",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=3"
     },
     {
       "id": "8d5c",
       "email": "abc@gmial.com",
-      "password": "123456"
+      "role": "Admin",
+      "username": "1111",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=3"
     },
     {
       "id": "d045",
       "email": "abc@gmial.com",
-      "password": "123456"
+      "role": "Guest",
+      "username": "1111",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=3"
     },
     {
-      "id": "2758",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "5599",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "9626",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "a020",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "a46f",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "ffd2",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "30cf",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "8b50",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "0a13",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "7d65",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "adee",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "c110",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "5c65",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "2f95",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "ae49",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "e482",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "174e",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "5adf",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "727f",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "0a15",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "ab1a",
-      "email": "abc@gmial.com",
-      "password": "123456"
-    },
-    {
-      "id": "1b14",
-      "email": "abc@gmial.com",
-      "password": "123456"
+      "id": "f73f",
+      "username": "admin@ivaluework.com",
+      "password": "Ivaluework@@123"
     }
   ]
 }

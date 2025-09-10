@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginExpire from './SessionExpire';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import EmailIcon from '@mui/icons-material/Email';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 // import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ import bg01 from '../../assets/images/bg-01.jpg';
 
 
 const Login: React.FC = () => {
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [expireModalOpen, setExpireModalOpen] = useState(false);
@@ -30,8 +30,8 @@ const Login: React.FC = () => {
     setError('');
     setLoading(true);
     try {
-      if (!form.email || !form.password) {
-        setError('Email and password are required');
+      if (!form.username || !form.password) {
+        setError('Username and password are required');
         setLoading(false);
         return;
       }
@@ -117,11 +117,11 @@ const Login: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             className="login-field"
-            label="Email"
-            placeholder="Enter your email"
-            name="email"
-            type="email"
-            value={form.email}
+            label="Username"
+            placeholder="Enter your username"
+            name="username"
+            type="text"
+            value={form.username}
             onChange={handleChange}
             fullWidth
             margin="normal"
@@ -131,7 +131,7 @@ const Login: React.FC = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <EmailIcon />
+                  <AccountCircle />
                 </InputAdornment>
               ),
             }}
