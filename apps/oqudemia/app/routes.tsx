@@ -17,6 +17,6 @@ export default [
   route('form', './featured/component/Form.tsx'),
   route('table', './featured/component/Table.tsx'),
   route('alert', './featured/component/Alert.tsx'),
-  // Catch-all: show login for any unknown/random URL, use a unique id
-  route('*', './shared/components/Login.tsx', { id: 'catchall-login' }),
+  // Catch-all: show login for any unknown/random URL
+  // route('*', './shared/components/Login.tsx'),
 ] satisfies RouteConfig;
