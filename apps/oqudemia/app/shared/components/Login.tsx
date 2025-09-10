@@ -106,11 +106,9 @@ const Login: React.FC = () => {
           />
           
           {error && <Typography color="error" variant="body2" mt={1}>{error}</Typography>}
-          <Box display="flex" justifyContent="flex-end">
-              <Button variant="text" size="small" sx={{ mb: 1 }} onClick={() => alert('Forgot password flow coming soon!')}>
-              Forgot password?
-            </Button>
-          </Box>
+          <div variant="text" align="right" size="small" sx={{ mb: 1 }} onClick={() => alert('Forgot password flow coming soon!')}>
+            <a href="#"> Forgot Password? </a>
+          </div>
           <Button
             type="submit"
             variant="contained"
