@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../core/utils/authContext';
-import LoginExpire from './SessionExpire';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
-// import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-// import Paper from '@mui/material/Paper';
 import { authorisationService } from '../../core/services/authorisation';
-
 import bg01 from '../../assets/images/bg-01.jpg';
 
 
@@ -19,8 +14,6 @@ const Login: React.FC = () => {
   const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [expireModalOpen, setExpireModalOpen] = useState(false);
-  const { logout, extendSession } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -37,64 +30,20 @@ const Login: React.FC = () => {
         setLoading(false);
         return;
       }
-  const user = await authorisationService.login({ username: form.username, password: form.password });
-  // Simulate token (replace with real token from backend if available)
-  localStorage.setItem('token', user.id || 'dummy-token');
-  // Set token expiry (5 seconds from now for testing)
-  const expiresAt = Date.now() + 50 * 1000;
-  localStorage.setItem('token_expires_at', expiresAt.toString());
-  setLoading(false);
-  window.location.href = '/app';
-    } catch (err: any) {
-      setError(err?.response?.data?.message || 'Login failed');
-      setLoading(false);
-    }
+    const user = await authorisationService.login({ username: form.username, password: form.password });
+    // Simulate token (replace with real token from backend if available)
+    localStorage.setItem('token', user.id || 'dummy-token');
+    // Set token expiry (1 minute from now)
+    const expiresAt = Date.now() + 1 * 60 * 1000;
+    localStorage.setItem('token_expires_at', expiresAt.toString());
+    setLoading(false);
+    window.location.href = '/app';
+      } catch (err: any) {
+        setError(err?.response?.data?.message || 'Login failed');
+        setLoading(false);
+      }
   };
 
-  // Token expiry warning logic
-  React.useEffect(() => {
-    const checkExpiry = () => {
-      const token = localStorage.getItem('token');
-      const expiresAt = parseInt(localStorage.getItem('token_expires_at') || '0', 10);
-      if (!token || !expiresAt) {
-        setExpireModalOpen(false);
-        window.sessionStorage.removeItem('token_expiry_alerted');
-        return;
-      }
-      const timeLeft = expiresAt - Date.now();
-      if (timeLeft <= 0) {
-        // Session expired: clear everything and reload to login
-        localStorage.removeItem('token');
-        localStorage.removeItem('token_expires_at');
-        setExpireModalOpen(false);
-        window.sessionStorage.removeItem('token_expiry_alerted');
-        window.location.href = '/';
-        return;
-      }
-      if (timeLeft < 5 * 1000 && timeLeft > 0) { // less than 5 sec left
-        if (!window.sessionStorage.getItem('token_expiry_alerted')) {
-          setExpireModalOpen(true);
-          window.sessionStorage.setItem('token_expiry_alerted', '1');
-        }
-      } else {
-        setExpireModalOpen(false);
-        window.sessionStorage.removeItem('token_expiry_alerted');
-      }
-    };
-    const interval = setInterval(checkExpiry, 1000); // check every 1s for demo
-    return () => clearInterval(interval);
-  }, []);
-
-  // Use context methods for session actions
-  const handleContinueSession = () => {
-    extendSession();
-    setExpireModalOpen(false);
-  };
-
-  const handleLogoutSession = () => {
-    logout();
-    setExpireModalOpen(false);
-  };
 
   return (
     <Box
@@ -109,7 +58,6 @@ const Login: React.FC = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-  <LoginExpire open={expireModalOpen} onContinue={handleContinueSession} onLogout={handleLogoutSession} />
   <div className="login-form">
         <Typography variant="h4" mb={2} align="center">Login</Typography>
         <form onSubmit={handleSubmit}>
