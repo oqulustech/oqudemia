@@ -91,7 +91,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export function App() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const isMobile = window.innerWidth < 600;
+  const [open, setOpen] = React.useState(!isMobile);
   const [navMenu, setNavMenu] = React.useState([]);
   const [sidemenu, setSidemenu] = React.useState([]);
 
@@ -156,11 +157,17 @@ export function App() {
       {/* Right Body Content */}
       <Box component="main" sx={{ flexGrow: 1, p: { xs: 1, sm: 2, md: 3 }, background: '#f5f6fa', minWidth: 0 }}>
         <DrawerHeader />
-        <Grid container justifyContent="center">
-          <Grid item xs={12} md={10} lg={8}>
-            <Content/>
-          </Grid>
-        </Grid>
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-10 col-lg-8">
+              <Grid container justifyContent="center">
+                <Grid item xs={12}>
+                  <Content/>
+                </Grid>
+              </Grid>
+            </div>
+          </div>
+        </div>
       </Box>
     </Box>
   );
