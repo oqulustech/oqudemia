@@ -145,8 +145,9 @@ export function App() {
       {/* Left Drawer Menu */}
       <Drawer variant="permanent" open={open}>
         <DrawerHeader className="drawerHeaderCustom">
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : 'Oqudemia'}
+          <IconButton onClick={handleDrawerClose} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>Oqudemia</span>
+            <ChevronRightIcon style={{ marginLeft: 8 }} />
           </IconButton>
         </DrawerHeader>
         <Divider />        
