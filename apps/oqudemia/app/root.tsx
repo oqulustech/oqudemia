@@ -39,7 +39,8 @@ const RootContent = () => {
         window.location.href = '/';
         return;
       }
-      if (timeLeft < 10 * 1000 && timeLeft > 0) {
+    // Modal appears 1 minute before expiry
+    if (timeLeft < 60 * 1000 && timeLeft > 0) {
         if (!alerted) {
           setExpireModalOpen(true);
           window.sessionStorage.setItem('token_expiry_alerted', '1');

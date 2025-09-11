@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Grid from '@mui/material/Grid';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -120,7 +121,7 @@ export function App() {
   const handleMenuSelect = (sidemenuData) => setSidemenu(sidemenuData);
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh' }}>
+    <Box sx={{ display: 'flex', height: '100vh', flexDirection: { xs: 'column', md: 'row' } }}>
       <CssBaseline />
       {/* Top Header */}
       <AppBar position="fixed" open={open}>
@@ -142,7 +143,7 @@ export function App() {
 
       {/* Left Drawer Menu */}
       <Drawer variant="permanent" open={open}>
-    <DrawerHeader className="drawerHeaderCustom">
+        <DrawerHeader className="drawerHeaderCustom">
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : 'Oqudemia'}
           </IconButton>
@@ -153,9 +154,13 @@ export function App() {
       </Drawer>
 
       {/* Right Body Content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3, background: '#f5f6fa' }}>
+      <Box component="main" sx={{ flexGrow: 1, p: { xs: 1, sm: 2, md: 3 }, background: '#f5f6fa', minWidth: 0 }}>
         <DrawerHeader />
-        <Content/>
+        <Grid container justifyContent="center">
+          <Grid item xs={12} md={10} lg={8}>
+            <Content/>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );

@@ -25,9 +25,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const extendSession = () => {
-  const newExpiresAt = Date.now() + 1 * 60 * 1000; // extend by 1 minute
-  localStorage.setItem('token_expires_at', newExpiresAt.toString());
-  window.sessionStorage.removeItem('token_expiry_alerted');
+    const newExpiresAt = Date.now() + 30 * 60 * 1000; // extend by 30 minutes
+    localStorage.setItem('token_expires_at', newExpiresAt.toString());
+    window.sessionStorage.removeItem('token_expiry_alerted');
   };
   const [roles, setRoles] = useState<UserRole[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);

@@ -46,7 +46,7 @@ const Login: React.FC = () => {
       }
       const user = await authorisationService.login({ username: form.username, password: form.password });
       localStorage.setItem('token', user.id || 'dummy-token');
-      const expiresAt = Date.now() + 1 * 60 * 1000;
+      const expiresAt = Date.now() + 30 * 60 * 1000; // 30 minutes
       localStorage.setItem('token_expires_at', expiresAt.toString());
       setLoading(false);
       window.location.href = '/app';
