@@ -161,11 +161,7 @@ export function App() {
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-12 col-md-10 col-lg-8">
-              <Grid container justifyContent="center">
-                <Grid item xs={12}>
-                  <Content/>
-                </Grid>
-              </Grid>
+                <Content/>
             </div>
           </div>
         </div>
