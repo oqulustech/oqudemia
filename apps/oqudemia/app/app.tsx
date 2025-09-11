@@ -159,10 +159,8 @@ export function App() {
       <Box component="main" sx={{ flexGrow: 1, p: { xs: 1, sm: 2, md: 3 }, background: '#f5f6fa', minWidth: 0 }}>
         <DrawerHeader />
         <div className="container-fluid">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-10 col-lg-8">
+          <div className="content-area">
                 <Content/>
-            </div>
           </div>
         </div>
       </Box>

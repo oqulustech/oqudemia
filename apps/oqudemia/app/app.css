@@ -54,6 +54,9 @@ body {
         min-height: 44px !important;
         font-size: 16px !important;
     }
+    .content-area {
+        margin-left: 55px;
+    }
 }
 .login-form a{
     text-decoration: none !important;
