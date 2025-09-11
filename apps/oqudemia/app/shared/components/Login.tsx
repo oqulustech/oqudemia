@@ -131,7 +131,7 @@ const Login: React.FC = () => {
             {error && <Typography color="error" variant="body2" mt={1}>{error}</Typography>}
             <Box display="flex" justifyContent="flex-end" sx={{ mb: 1 }}>
               <Button variant="text" size="small" onClick={navigateToForgotPassword}>
-                Forgot password?
+                <span style={{ textTransform: 'capitalize' }}>Forgot Password?</span>
               </Button>
             </Box>
             <Button
@@ -158,7 +158,7 @@ const Login: React.FC = () => {
           <form onSubmit={handleForgotSubmit}>
             <TextField
               className="login-field"
-              label="Email"
+              label="Email id"
               placeholder="Enter your email"
               name="forgotEmail"
               type="email"
@@ -182,11 +182,7 @@ const Login: React.FC = () => {
                 {forgotMessage}
               </Typography>
             )}
-            <Box display="flex" justifyContent="flex-end" sx={{ mb: 1 }}>
-              <Button variant="text" size="small" onClick={backToLogin}>
-                Back to Login
-              </Button>
-            </Box>
+            
             <Button
               type="submit"
               variant="contained"
@@ -198,6 +194,12 @@ const Login: React.FC = () => {
             >
               {forgotLoading ? 'Sending...' : 'Send Reset Link'}
             </Button>
+            
+            <Box mt={2} display="flex" flexDirection="column" alignItems="center">
+              <Typography align="center" color="error" sx={{ width: '100%' }} >
+                <a href="#" onClick={backToLogin}> Back to Login</a>
+              </Typography>
+            </Box>
           </form>
         </div>
       )}
