@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
+import EmailIcon from '@mui/icons-material/Email';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -172,7 +173,7 @@ const Login: React.FC = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <AccountCircle />
+                    <EmailIcon />
                   </InputAdornment>
                 ),
               }}
@@ -192,7 +193,7 @@ const Login: React.FC = () => {
               className="button-login"
               disabled={forgotLoading}
             >
-              {forgotLoading ? 'Sending...' : 'Send Reset Link'}
+              {forgotLoading ? 'Sending...' : 'Submit'}
             </Button>
             
             <Box mt={2} display="flex" flexDirection="column" alignItems="center">
