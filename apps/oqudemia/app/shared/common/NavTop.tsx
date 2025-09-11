@@ -1,5 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -34,6 +37,8 @@ interface NavTopProps {
 
 
 const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
@@ -56,18 +61,48 @@ const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
   return (
     <AppBar position="static" color="primary" enableColorOnDark>
       <Toolbar>
-        <Stack direction="row" spacing={1} sx={{ flexGrow: 1 }}>
-          {navMenu.map((item) => (
-            <NavLink
-              key={item.id}
-              to={item.link}
-              style={{ color: 'inherit', textDecoration: 'none', marginRight: 8 }}
-              onClick={() => onMenuSelect(item.sidemenu || [])}
+        {isMobile ? (
+          <>
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={() => setDrawerOpen(true)}
+              sx={{ mr: 2 }}
             >
-              {item.name}
-            </NavLink>
-          ))}
-        </Stack>
+              <MenuIcon />
+            </IconButton>
+            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+              <Box sx={{ width: 250 }} role="presentation" onClick={() => setDrawerOpen(false)}>
+                <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
+                  {navMenu.map((item) => (
+                    <NavLink
+                      key={item.id}
+                      to={item.link}
+                      style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 500, fontSize: 18, padding: '8px 16px' }}
+                      onClick={() => onMenuSelect(item.sidemenu || [])}
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
+                </Stack>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </Box>
+            </Drawer>
+          </>
+        ) : (
+          <Stack direction="row" spacing={1} sx={{ flexGrow: 1 }}>
+            {navMenu.map((item) => (
+              <NavLink
+                key={item.id}
+                to={item.link}
+                style={{ color: 'inherit', textDecoration: 'none', marginRight: 8 }}
+                onClick={() => onMenuSelect(item.sidemenu || [])}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </Stack>
+        )}
         <Box sx={{ flexGrow: 0 }}>
           <IconButton
             size="large"
