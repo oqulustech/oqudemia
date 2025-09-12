@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import DehazeIcon from '@mui/icons-material/Dehaze';
 import { menuService } from './core/services/menu';
 import './app.css';
 
@@ -135,7 +136,8 @@ export function App() {
             edge="start"
             sx={{ marginRight: 2, ...(open && { display: 'none' }) }}
           >
-          <ChevronRightIcon style={{ marginLeft: 8 }} />  Oqudemia
+          <DehazeIcon style={{ marginLeft: 0, marginRight: 8 }}/> Oqudemia
+          {/* <ChevronRightIcon style={{ marginLeft: 8 }} />  Oqudemia */}
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <NavTop navMenu={navMenu} onMenuSelect={handleMenuSelect} />
@@ -149,7 +151,6 @@ export function App() {
           <IconButton onClick={handleDrawerClose} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>Oqudemia</span>
             <ChevronLeftIcon style={{ marginLeft: 8 }} />
-            {/* <ChevronRightIcon style={{ marginLeft: 8 }} /> */}
           </IconButton>
         </DrawerHeader>
         <Divider />        

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from '../common/Alert';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -23,6 +24,7 @@ const Login: React.FC = () => {
   const [forgotEmail, setForgotEmail] = useState('');
   const [forgotLoading, setForgotLoading] = useState(false);
   const [forgotMessage, setForgotMessage] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
   const navigateToForgotPassword = () => {
     setShowForgot(true);
     setForgotMessage('');
@@ -49,7 +51,10 @@ const Login: React.FC = () => {
       const expiresAt = Date.now() + 30 * 60 * 1000; // 30 minutes
       localStorage.setItem('token_expires_at', expiresAt.toString());
       setLoading(false);
-      window.location.href = '/admission';
+      setShowSuccess(true);
+      setTimeout(() => {
+        window.location.href = '/admission';
+      }, 1200);
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Login failed');
       setLoading(false);
@@ -83,6 +88,9 @@ const Login: React.FC = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
+      {showSuccess && (
+        <Alert type="success" message="Login successful! Redirecting..." />
+      )}
       {!showForgot ? (
         <div className="login-form">
           <Typography variant="h4" mb={2} align="center">Login</Typography>
