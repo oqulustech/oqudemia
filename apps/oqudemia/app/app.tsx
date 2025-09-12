@@ -136,7 +136,7 @@ export function App() {
             edge="start"
             sx={{ marginRight: 2, ...(open && { display: 'none' }) }}
           >
-            <DehazeIcon style={{ marginLeft: window.innerWidth < 600 ? 8 : 0, marginRight: 8 }}/>
+            <DehazeIcon style={{ marginLeft: window.innerWidth < 600 ? 8 : 0, marginRight: 12 }}/>
             Oqudemia
           </IconButton>
           <Typography variant="h6" noWrap component="div">
