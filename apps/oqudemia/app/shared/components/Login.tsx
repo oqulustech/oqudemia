@@ -89,7 +89,7 @@ const Login: React.FC = () => {
       }}
     >
       {showSuccess && (
-        // <Alert type="success" message="Login successful! Redirecting..." />
+        // <Alert type="error" message="Login successful! Redirecting..." />
         <></>
       )}
       {!showForgot ? (

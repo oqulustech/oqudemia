@@ -17,10 +17,10 @@ interface AlertProps {
 }
 
 const iconMap = {
-  success: <CheckCircleIcon sx={{ color: 'success.main', mr: 1 }} />,
-  error: <ErrorIcon sx={{ color: 'error.main', mr: 1 }} />,
-  warning: <WarningIcon sx={{ color: 'warning.main', mr: 1 }} />,
-  info: <InfoIcon sx={{ color: 'info.main', mr: 1 }} />,
+  success: <CheckCircleIcon sx={{ color: '#fff', mr: 1 }} />,
+  error: <ErrorIcon sx={{ color: '#fff', mr: 1 }} />,
+  warning: <WarningIcon sx={{ color: '#fff', mr: 1 }} />,
+  info: <InfoIcon sx={{ color: '#fff', mr: 1 }} />,
 };
 
 const bgMap = {
@@ -40,7 +40,7 @@ const Alert: React.FC<AlertProps> = ({ type, message, show = true, onClose }) =>
       timer = setTimeout(() => {
         setVisible(false);
         if (onClose) onClose();
-      }, 5000);
+      }, 6000);
     } else {
       setVisible(false);
     }
@@ -63,19 +63,17 @@ const Alert: React.FC<AlertProps> = ({ type, message, show = true, onClose }) =>
         borderRadius: 2,
         p: 2,
         boxShadow: 3,
-        minWidth: 200,
+        minWidth: 300,
         maxWidth: 400,
       }}
     >
       {iconMap[type]}
-      <Typography variant="body1" sx={{ flex: 1 }}>
+      <Typography variant="body1" sx={{ flex: 1, color: '#fff' }}>
         {message}
       </Typography>
-      {onClose && (
-        <Box component="span" sx={{ ml: 2, cursor: 'pointer', color: 'text.secondary' }} onClick={() => { setVisible(false); onClose(); }}>
-          &#10005;
-        </Box>
-      )}
+      <Box component="span" sx={{ ml: 2, cursor: 'pointer', color: '#fff', fontWeight: 'bold', fontSize: 20 }} onClick={() => { setVisible(false); if (onClose) onClose(); }}>
+        &#10005;
+      </Box>
     </Box>
   );
 };
