@@ -73,7 +73,7 @@ const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
             </IconButton>
             <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
               <Box sx={{ width: 250 }} role="presentation" onClick={() => setDrawerOpen(false)}>
-                <Stack direction="column" spacing={2} sx={{ mt: 2 }}>
+                <Stack direction="column" spacing={2} sx={{ mt: 7 }}>
                   {navMenu.map((item) => (
                     <NavLink
                       key={item.id}
