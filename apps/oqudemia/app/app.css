@@ -33,7 +33,7 @@ body {
         max-width: 95vw;
         background: rgba(255,255,255,0.85) !important;
         color: #333 !important;
-        border-left: 6px solid salmon;
+        /* border-left: 6px solid salmon; */
         box-sizing: border-box;
 }
 
