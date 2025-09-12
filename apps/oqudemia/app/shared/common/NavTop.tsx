@@ -82,8 +82,8 @@ const NavTop: React.FC<NavTopProps> = ({ navMenu, onMenuSelect }) => {
                       onClick={() => {
                         onMenuSelect(item.sidemenu || []);
                         setDrawerOpen(false);
-                      }}
-                    >
+                        }}
+                      >
                       {item.name}
                     </NavLink>
                   ))}

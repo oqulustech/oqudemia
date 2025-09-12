@@ -9,6 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { menuService } from './core/services/menu';
 import './app.css';
@@ -147,7 +148,8 @@ export function App() {
         <DrawerHeader className="drawerHeaderCustom">
           <IconButton onClick={handleDrawerClose} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>Oqudemia</span>
-            <ChevronRightIcon style={{ marginLeft: 8 }} />
+            <ChevronLeftIcon style={{ marginLeft: 8 }} />
+            {/* <ChevronRightIcon style={{ marginLeft: 8 }} /> */}
           </IconButton>
         </DrawerHeader>
         <Divider />        
