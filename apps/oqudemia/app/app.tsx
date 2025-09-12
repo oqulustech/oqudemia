@@ -136,8 +136,8 @@ export function App() {
             edge="start"
             sx={{ marginRight: 2, ...(open && { display: 'none' }) }}
           >
-          <DehazeIcon style={{ marginLeft: 0, marginRight: 8 }}/> Oqudemia
-          {/* <ChevronRightIcon style={{ marginLeft: 8 }} />  Oqudemia */}
+            <DehazeIcon style={{ marginLeft: window.innerWidth < 600 ? 8 : 0, marginRight: 8 }}/>
+            Oqudemia
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <NavTop navMenu={navMenu} onMenuSelect={handleMenuSelect} />
