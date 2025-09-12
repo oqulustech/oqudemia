@@ -19,6 +19,9 @@ body {
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
+    width: 95%;
+    display: flex; 
+    justify-content: space-between;
 }
 
 /*Login form*/
@@ -56,6 +59,9 @@ body {
     }
     .content-area {
         margin-left: 55px;
+    }
+    .drawerHeaderCustom {
+        min-height: 48px;
     }
 }
 .login-form a{
