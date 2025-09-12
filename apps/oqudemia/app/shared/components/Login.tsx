@@ -49,7 +49,7 @@ const Login: React.FC = () => {
       const expiresAt = Date.now() + 30 * 60 * 1000; // 30 minutes
       localStorage.setItem('token_expires_at', expiresAt.toString());
       setLoading(false);
-      window.location.href = '/app';
+      window.location.href = '/admission';
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Login failed');
       setLoading(false);
