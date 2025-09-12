@@ -135,7 +135,7 @@ export function App() {
             edge="start"
             sx={{ marginRight: 2, ...(open && { display: 'none' }) }}
           >
-            Oqudemia
+          <ChevronRightIcon style={{ marginLeft: 8 }} />  Oqudemia
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <NavTop navMenu={navMenu} onMenuSelect={handleMenuSelect} />
