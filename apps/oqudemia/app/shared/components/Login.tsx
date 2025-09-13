@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setError('');
   };
-  const [form, setForm] = useState({ username: '', password: '' });
+  const [form, setForm] = useState({ username: '1111', password: '123456' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showForgot, setShowForgot] = useState(false);
